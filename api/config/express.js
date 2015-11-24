@@ -1,4 +1,6 @@
-var express = require('express');
+var imports = require('./imports');
+
+var express = imports.getExpress();
 
 module.exports = function(){
   var app = express();
