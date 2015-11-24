@@ -1,6 +1,9 @@
+//============================
 var http = require('http');
-var api = require('./config/express')();
-
-http.createServer(api).listen(api.get('port'), function(){
-  console.log('Express server escutando na porta ' + api.get('port'));
+var main = require('./app');
+//============================
+var server = http.createServer(main);
+//============================
+server.listen(main.get('port'), function(){
+  console.log('Express server escutando na porta ' + main.get('port'));
 });
