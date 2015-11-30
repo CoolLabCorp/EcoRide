@@ -8,7 +8,7 @@
 
           <div ng-controller="FirstController">
               <div ng-hide="content">Loading...</div>
-              <ul ng-if="content" class="list">
+              <ul ng-if="content" class="list list-inset">
                   <li ng-repeat="obj in content" class="item"><span ng-bind="::obj.email"></span></li>
               </ul>
           </div>
