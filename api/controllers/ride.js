@@ -34,7 +34,7 @@ controller.get('/', function(req, res) {
 
 controller.post('/', function(req, res, next) {
   console.log(req.body.driver) ;
-  var current_ride =new ride(req.body.driver,req.body.origin,req.body.destin,req.body.slots,req.body.timestamp);
+  var current_ride = new ride(req.body.driver,req.body.origin,req.body.destin,req.body.slots,req.body.timestamp);
   collection.push(current_ride);
   res.redirect('/rides');
 });

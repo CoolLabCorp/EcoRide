@@ -24,7 +24,6 @@ Vagrant.configure(2) do |config|
 
   # Configurando o Workspace dentro da pasta principal
   config.vm.provision "shell", inline: <<-SHELL
-     sudo ln -s /vagrant/   /home/vagrant/Workspace
   SHELL
 
   ### Fix SSH Authentication Failure
