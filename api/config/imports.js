@@ -16,10 +16,6 @@ module.exports = {
     getMongoose: function(){
         var mongoose = require('/home/vagrant/node_modules/mongoose/index.js');
         return mongoose;
-    },
-    getBsonParser: function(){
-        var bson = require('/home/vagrant/node_modules/bson/index.js');
-        return bson;  
     }
 
 };

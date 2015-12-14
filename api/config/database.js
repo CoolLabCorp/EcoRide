@@ -1,22 +1,15 @@
-var imports = require('./config/imports');
+var imports = require('../config/imports');
 var mongoose = imports.getMongoose();
-var db = {};
 // ============
 // Config Database
 // ============
-db.connection = function (server, options, next) {
-    server.on('start', () => {
-        mongoose.connect('mongodb://localhost/');
-    });
 
-    server.on('stop', () => {
-        mongoose.disconnect();
-    });
-
-    next();
+var db = { 
+    connect: function() { mongoose.connect('mongodb://localhost/ecoride'); },
+    disconnect: function() { mongoose.disconnect(); }
 };
 
-db.connection.attributes = {
+db.attributes = {
     name: "Gerência do Banco de Dados",
     version: "1.0"
 }
