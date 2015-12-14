@@ -1,11 +1,29 @@
 // Ride.js
+// =================
+var imports = require('../config/imports');
+var mongoose = imports.getMongoose();
+// =================
+var rideSchema = {}
+// Schema -> Ride :
 
-function Ride(driver,origin,destin,slots,timestamp) {
-    this.driver = driver;
-    this.origin = origin;
-    this.destin = destin;
-    this.slots = slots;
-    this.timestamp = timestamp;
-}
+ rideSchema =  mongoose.Schema({
+    driver: String, 
+    comments: [{ author: String,body: String, date: Date, votes: Number, rating: Number }],
+    origin: String,
+    destin: String,
+    slots: Number,
+    timestamp: Date,
+    meta: {
+        rating: Number,
+        votes: Number
+    }
+});
 
-module.exports = Ride;
+ rideSchema.methods.getData = function() {
+    var data = this.driver + " - "+meta.rating;
+    // Coment bellow
+    console.log(data);
+ }
+
+ module.exports = rideSchema;
+// =======END=======
