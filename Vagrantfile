@@ -23,8 +23,10 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data" ( Extra Folder Sync )
 
   # Configurando o Workspace dentro da pasta principal
-  config.vm.provision "shell", inline: <<-SHELL
-  SHELL
+  #config.vm.provision "EcoRideNodeProvision", type: "shell", inline: "sudo node /vagrant/api/server.js >> /vagrant/templog"
+  config.vm.provision "shell" do |s|
+    s.inline = "sudo node /vagrant/api/server.js > /vagrant/logs/api 2>&1 && sudo mongod > /vagrant/logs/mongod 2>&1 &"
+  end
 
   ### Fix SSH Authentication Failure
   config.ssh.private_key_path = "./vagrant_private_key"
