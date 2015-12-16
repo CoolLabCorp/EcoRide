@@ -1,0 +1,50 @@
+Máquina Virtual do Desenvolvedor
+
+export PATH=${PATH}:~/vagrant/android-sdk-linux/tools:~/vagrant/android-sdk-linux/platform-tools
+
+
+
+export ANDROID_HOME=/opt/android-sdk-linux
+
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+   Xvfb :1 -ac -screen 0 1024x768x8 -extension RANDR &
+   export DISPLAY=:1
+
+
+Xvfb :21 -ac -screen 0 1024x768x24 -extension RANDR &
+ export DISPLAY=:21
+
+ 
+sudo npm -g install n
+
+sudo npm -g install npm
+
+sudo sudo npm n 4.0
+
+sudo apt-get install clang-3.5 make gcc g++ libssl-dev libkrb5-dev
+
+sudo npm install --save kerberos
+
+sudo install -g cordova ionic
+
+
+0 - http://respostas.guj.com.br/5177-instalacao-do-jdk-para-linux-via-terminal
+
+1- http://www.liberiangeek.net/2012/07/download-and-install-androidsdk-in-ubuntu-12-04-precise-pangolin/
+
+2- https://spring.io/guides/gs/android/
+
+3- https://developer.ibm.com/answers/questions/163273/orgeclipseswtswterror-no-more-handles-gtk-init-che.html
+
+sudo chmod 777 -R <nomedapasta>
+
+sudo apt-get install gtk2-engines-pixbuf
+
+Xvfb :1 -ac -screen 0 1024x768x8 +extension RANDR 
+
+android update sdk --no-ui 
+
+./android update sdk -u
+
+96910523
