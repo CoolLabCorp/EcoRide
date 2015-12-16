@@ -16,7 +16,6 @@ var Ride = mongoose.model('Ride',rideSchema);
 //==========Memory============
 
 var collection = [];
-collection.push( ("yuri","Natal-RN","Parnamirim","4","2015-11-24 14:00:00 -3000"));
 
 //============================
 // Logger
@@ -34,22 +33,23 @@ controller.use(function(req, res, next) {
 // Routes
 
 controller.get('/', function(req, res) {
-  // Get ALL do Banco
+  // Get ALL do Banco  
   Ride.find( function (err, rides) {
     if (err) return console.error(err);
     collection = rides;
-    console.log(rides);
-  })
+  });
+  console.log(collection);
   // ------------------------
   res.status(200).json(collection);
 });
 
 controller.post('/', function(req, res, next) {
   // Create New
-  // ------------------------
-  // Falta ainda
   console.log(req.body.driver) ;
-  var current_ride = new ride(req.body.driver,req.body.origin,req.body.destin,req.body.slots,req.body.timestamp);
+  var current_ride = new Ride(req.body.driver,[],req.body.origin,req.body.destin,req.body.slots,req.body.timestamp,{});
+  current_ride.save(function (err,rides){
+  console.log(rides)
+  });
   collection.push(current_ride);
   res.redirect('/rides');
 });

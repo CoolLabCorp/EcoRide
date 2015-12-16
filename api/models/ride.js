@@ -6,7 +6,7 @@ var mongoose = imports.getMongoose();
 var rideSchema = {}
 // Schema -> Ride :
 
- rideSchema =  mongoose.Schema({
+rideSchema =  mongoose.Schema({
     driver: String, 
     comments: [{ author: String,body: String, date: Date, votes: Number, rating: Number }],
     origin: String,
@@ -19,7 +19,7 @@ var rideSchema = {}
     }
 });
 
- rideSchema.methods.getData = function() {
+rideSchema.methods.getData = function() {
     var data = this.driver + " - "+meta.rating;
     // Coment bellow
     console.log(data);

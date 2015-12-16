@@ -1,10 +1,9 @@
-
 //var imports = require('./config/imports');
 //============================
 var app = require('./config/environment');
 var db = require('./config/database');
 var ride = require('./controllers/ride');
-//var main = require('./controllers/index');
+var main = require('./controllers/index');
 //============================
 var controllers = {'ride' : ride,'main':main};
 
