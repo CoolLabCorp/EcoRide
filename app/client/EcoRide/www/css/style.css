@@ -12,13 +12,18 @@
 }	
 
 div > .button-row img {
-    max-width: 80%;
+    max-width: 70%;
 }
 
 .login-container > .header {
     -moz-flex: 4;
     -webkit-flex: 4;
     padding-top: 20px;
+}
+
+
+#statusUser {
+    width: 88%;
 }
 
 }
