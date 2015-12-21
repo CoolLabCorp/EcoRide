@@ -7,6 +7,7 @@ var rideSchema = {}
 // Schema -> Ride :
 
 rideSchema =  mongoose.Schema({
+    ride_id: { type: String, unique : true, required: true,dropDups: true },
     driver: String, 
     comments: [{ author: String,body: String, date: Date, votes: Number, rating: Number }],
     origin: String,
@@ -18,12 +19,6 @@ rideSchema =  mongoose.Schema({
         votes: Number
     }
 });
-
-rideSchema.methods.getData = function() {
-    var data = this.driver + " - "+meta.rating;
-    // Coment bellow
-    console.log(data);
- }
 
  module.exports = rideSchema;
 // =======END=======
