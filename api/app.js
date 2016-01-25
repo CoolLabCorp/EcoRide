@@ -1,22 +1,19 @@
-//var imports = require('./config/imports');
-//============================
+//== Imports. ===================
 var app = require('./config/environment');
 var db = require('./config/database');
 var ride = require('./controllers/ride');
-var main = require('./controllers/index');
-//============================
-var controllers = {'ride' : ride,'main':main};
+var main = require('./controllers/main');
+//== Startup. ===================
 
-
-// App = Express Instance, Router = Router Instance
-app.on('listening', function(){
-    db.connect();
-    console.log("Banco de Dados Conectado.");
-});
-app.on('close',function(){
+db.connect();
+process.on('exit', function () {
     db.disconnect();
-    console.log("Servidor Finalizado.");
+    console.log("[Server] Offline.");
 });
+
+
+//== Controllers & Routes. =========
+
 app.use('/home',main);
 app.use('/rides',ride);
 
