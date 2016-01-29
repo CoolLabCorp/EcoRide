@@ -13,25 +13,26 @@ SequenceSchema = mongoose.Schema({
 
 SequenceSchema.methods.nextId = function (model) {
     Sequence = model;
-    var id = Sequence.find(function(err, data){
-        if(err){ throw(err); }
+    return {
+    next: function(callback){
+      Sequence.find( function (err, data) {
+        if(err){ console.error(err); }
         if(data.length < 1){
-        // create if doesn't exist create and return first
-        Sequence.create({}, function(err, seq){
+          // create if doesn't exist create and return first
+          Sequence.create({}, function(err, seq){
             if(err) { throw(err); }
-            return seq.nextSeqNumber;
-        });
-
-    } else {
-            // update sequence and return next
-            Sequence.findByIdAndUpdate(data[0]._id, { $inc: { nextSeqNumber: 1 } }, function(err, seq){
-                if(err) { throw(err); }
-                return seq.nextSeqNumber;
-            });
+            callback(seq.nextSeqNumber);
+          });
+        } else {
+          // update sequence and return next
+          Sequence.findByIdAndUpdate(data[0]._id, { $inc: { nextSeqNumber: 1 } }, function(err, seq){
+            if(err) { throw(err); }
+            callback(seq.nextSeqNumber);
+          });
         }
-
-    });
-    return id;
+      });
+    }
+  };
 }
 
 module.exports = SequenceSchema;

@@ -1,6 +1,7 @@
 Vagrant.configure(2) do |config|
 
   # ISO
+  # config.vm.box = "ycalistrato/ECorp"
   config.vm.box = "erackson/EcoRide"
 
   # Memoria da Maquina Virtual
@@ -22,11 +23,20 @@ Vagrant.configure(2) do |config|
   # Sincronização Extra
   # config.vm.synced_folder "../data", "/vagrant_data" ( Extra Folder Sync )
 
-  # Configurando o Workspace dentro da pasta principal
-  #config.vm.provision "EcoRideNodeProvision", type: "shell", inline: "sudo node /vagrant/api/server.js >> /vagrant/templog"
-  config.vm.provision "shell" do |s|
-    s.inline = "sudo node /vagrant/api/server.js > /vagrant/logs/api 2>&1 && sudo mongod > /vagrant/logs/mongod 2>&1 &"
-  end
+  # Provision 
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   sudo apt-get update
+  #   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+  #   sudo apt-get install -y nodejs
+  #   sudo apt-get install -y build-essential
+  #   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+  #   echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+  #   sudo apt-get update
+  #   sudo apt-get install mongodb-org -y
+  #   sudo locale-gen "en_US.UTF-8"
+  #   export LC_ALL=C
+  #   sudo apt-get install git-core
+  # SHELL
 
   ### Fix SSH Authentication Failure
   config.ssh.private_key_path = "./vagrant_private_key"

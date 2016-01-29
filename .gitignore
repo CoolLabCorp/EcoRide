@@ -1,5 +1,8 @@
 .DS_Store
 
+# Boxes
+*.box
+
 # Logs
 logs
 *.log
