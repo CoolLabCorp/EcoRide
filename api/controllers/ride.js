@@ -32,8 +32,17 @@ controller.get('/', function(req, res) {
     if (err) return console.error(err);
     // Set memory array,
     collection = rides;
+    res.status(200).json(collection);
   });
-  res.status(200).json(collection);
+});
+
+controller.get('/:id(\\d+)/', function(req, res) {
+  Ride.findOne({ride_id: req.params.id}, function (err, ride){
+    if(err) console.error(err);    
+    collection = [];
+    ride ? collection.push(ride) : collection.push("empty");
+    res.status(200).json(collection);
+  })
 });
 
 controller.post('/', function(req, res,next) {
@@ -52,16 +61,35 @@ controller.post('/', function(req, res,next) {
     current_ride.save(function (err,ride){
       if(err) return console.error(err);
     });
-  });
-  res.redirect('/rides');
+    res.redirect('/rides');
+  });  
 });
 
 controller.put('/:id', function(req, res, next) {
-  res.json(null);
+  Ride.findOne({ride_id: req.params.id}, function (err, current_ride){
+    if(err) console.error(err);
+    if(current_ride.length < 1)
+      collection.push("not found");
+    else
+    {
+      if (req.body.driver) current_ride.driver = req.body.driver;
+      if (req.body.origin) current_ride.origin = req.body.origin;
+      if (req.body.destin) current_ride.destin = req.body.destin;
+      if (req.body.slots) current_ride.slots = req.body.slots;
+      if (req.body.timestamp) current_ride.timestamp = req.body.timestamp;      
+      Ride.update(current_ride);
+    }
+    res.redirect('/rides/'+req.params.id+'/');
+  });
 });
 
 controller.delete('/:id', function(req, res, next) {
-  res.json(null);
+  Ride.remove({ride_id: req.params.id}, function (err, current_ride){
+    if(err) console.error(err);    
+    collection=[];
+    collection.push({"Removido": current_ride });
+    res.redirect('/rides/'+req.params.id+'/');
+  });
 });
 
 
