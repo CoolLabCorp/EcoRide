@@ -18,12 +18,24 @@ module.exports = {
         return mongoose;
     },
     getBoom: function(){
-        var boom = require('/home/vagrant/libs/node_modules/boom/generate-toc.js');
+        var boom = require('/home/vagrant/libs/node_modules/boom/lib/index.js');
         return boom;
     },
     getJoi: function(){
-        var joi = require('/home/vagrant/libs/node_modules/joi/generate-readme-toc.js');
+        var joi = require('/home/vagrant/libs/node_modules/joi/lib/index.js');
         return joi;
+    },
+      getEjs: function(){
+        var ejs = require('/home/vagrant/libs/node_modules/ejs/ejs.min.js');
+        return ejs;
+    },
+      getExpressSession: function(){
+        var expressSession = require('/home/vagrant/libs/node_modules/express-session/index.js');
+        return expressSession;
+    },
+      getCrypto: function(){
+        var crypto = require('/home/vagrant/libs/node_modules/crypto-js/index.js');
+        return crypto;
     }
 
 };
