@@ -5,9 +5,9 @@
   var express = imports.getExpress();
   var parser = imports.getBodyParser();
   var mongoose = imports.getMongoose();
-  var Joi = imports.getJoi();
   var expressSession = imports.getExpressSession();
   var ejs = imports.getEjs();
+  var facebook = imports.getFacebook();
   var crypto = imports.getCrypto();
   var controller = express.Router();
 
@@ -20,8 +20,8 @@
 //== Models. ===================
 
 //var ObjectId = require("mongoose").Types.ObjectId;
-var userSchema = require('../models/user');
-var User = mongoose.model('User',userSchema);
+//var userSchema = require('../models/user');
+//var User = mongoose.model('User',userSchema);
 
 //== Memory. ==================
 
@@ -29,7 +29,7 @@ var collection = [];
 
 //== Routes & Logic. =============
 
-controller.post('/', function(req, res) {
+/*controller.post('/', function(req, res) {
   var newUser = new User();
 
   var ciphertext = crypto.AES.encrypt(req.body.password, 'secret key 123');
@@ -37,6 +37,7 @@ controller.post('/', function(req, res) {
   req.body.email ? newUser.email = req.body.email : newUser.email = null ;
   req.body.username ? newUser.username = req.body.username : newUser.username = null;
   req.body.password ? newUser.password = ciphertext: newUser.password = null;
+  req.body.nick ? newUser.nick = req.body.nick : newUser.nick = null;
 
     newUser.save(function (err,user){
       if(err) return console.error(err);

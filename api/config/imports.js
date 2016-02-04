@@ -21,10 +21,6 @@ module.exports = {
         var boom = require('/home/vagrant/libs/node_modules/boom/lib/index.js');
         return boom;
     },
-    getJoi: function(){
-        var joi = require('/home/vagrant/libs/node_modules/joi/lib/index.js');
-        return joi;
-    },
       getEjs: function(){
         var ejs = require('/home/vagrant/libs/node_modules/ejs/ejs.min.js');
         return ejs;
@@ -36,6 +32,10 @@ module.exports = {
       getCrypto: function(){
         var crypto = require('/home/vagrant/libs/node_modules/crypto-js/index.js');
         return crypto;
+    },
+      getFacebook: function(){
+        var facebook = require('/home/vagrant/libs/node_modules/passport-facebook/lib/index.js');
+        return facebook;
     }
 
 };
