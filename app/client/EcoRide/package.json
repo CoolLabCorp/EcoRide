@@ -1,7 +1,7 @@
 {
   "name": "ecoride",
-  "version": "1.1.1",
-  "description": "EcoRide: An Ionic project",
+  "version": "1.2",
+  "description": "EcoRide: An OpenSource, freeware, designed to help transportation based on couchsurfing.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",

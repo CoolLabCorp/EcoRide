@@ -87,7 +87,7 @@ controller.delete('/:id', function(req, res, next) {
   Ride.remove({ride_id: req.params.id}, function (err, current_ride){
     if(err) console.error(err);    
     collection=[];
-    collection.push({"Removido": current_ride });
+    collection.push({"Removido" : current_ride });
     res.redirect('/rides/'+req.params.id+'/');
   });
 });
