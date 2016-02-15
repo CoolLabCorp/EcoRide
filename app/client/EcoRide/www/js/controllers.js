@@ -1,32 +1,16 @@
-angular.module('starter.controllers', [])
+(function(){
+  var app = angular.module('ecoride', []);
 
-.controller('StatusUserCtrl', function($scope) {})
+  function authenticate(type,$scope, $http){
+    if(type == 0) {
+      // Facebook
+      $http.get('http://189.124.134.6:3000/auth/facebook');
+    }else{
+      // Others
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+    }
+  }
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
+  app.controller('auth',);
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-})
-
-.controller('LoginCtrl', function($scope) {})
-
-;
+})();

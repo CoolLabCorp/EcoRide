@@ -17,26 +17,26 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = true
 
   # Rede
-  # config.vm.network "forwarded_port", guest: 3000, host: 8080
-  config.vm.network "private_network", ip: "192.168.24.69"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # config.vm.network "private_network", ip: "192.168.24.69"
 
   # Sincronização Extra
   # config.vm.synced_folder "../data", "/vagrant_data" ( Extra Folder Sync )
 
   # Provision 
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-  #   sudo apt-get install -y nodejs
-  #   sudo apt-get install -y build-essential
-  #   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-  #   echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-  #   sudo apt-get update
-  #   sudo apt-get install mongodb-org -y
-  #   sudo locale-gen "en_US.UTF-8"
-  #   export LC_ALL=C
-  #   sudo apt-get install git-core
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update
+    curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    sudo apt-get install -y build-essential
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+    sudo apt-get update
+    sudo apt-get install mongodb-org -y
+    sudo locale-gen "en_US.UTF-8"
+    export LC_ALL=C
+    sudo apt-get install git-core
+  SHELL
 
   ### Fix SSH Authentication Failure
   config.ssh.private_key_path = "./vagrant_private_key"
