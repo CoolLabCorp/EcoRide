@@ -1,4 +1,4 @@
-Vagrant.configure(2) do |config|
+﻿Vagrant.configure(2) do |config|
 
   # ISO
   config.vm.box = "ycalistrato/ECorp"
@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
   SHELL
 
   ### Fix SSH Authentication Failure
-  config.ssh.private_key_path = "./vagrant_private_key"
-  config.ssh.forward_agent = true
+  #config.ssh.private_key_path = "./vagrant_private_key"
+  #config.ssh.forward_agent = true
 
 end
