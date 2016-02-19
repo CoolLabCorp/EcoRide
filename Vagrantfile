@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data" ( Extra Folder Sync )
 
   # Provision 
+=begin
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
@@ -36,7 +37,8 @@ Vagrant.configure(2) do |config|
     sudo locale-gen "en_US.UTF-8"
     export LC_ALL=C
     sudo apt-get install git-core
-  SHELL
+  SHELL=end
+
 
   ### Fix SSH Authentication Failure
   config.ssh.private_key_path = "./vagrant_private_key"

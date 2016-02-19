@@ -31,4 +31,3 @@ angular.module('app.controllers', [])
 .controller('routineCtrl', function($scope) {
 
 })
-
