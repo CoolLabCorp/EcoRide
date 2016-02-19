@@ -1,0 +1,47 @@
+<ion-view style="" title="Settings">
+    <ion-content class="has-header has-footer" overflow-scroll="true" padding="true">
+        <form style="" class="list">
+            <h4 style="">Settings</h4>
+            <div style="" class="list card">
+                <div class="item item-divider">Identify</div>
+                <div class="item item-body">
+                    <form style="" class="list">
+                        <label style="" class="item item-input">
+                            <span class="input-label">Color</span>
+                            <input placeholder="" type="text">
+                        </label>
+                        <label style="" class="item item-input">
+                            <span class="input-label">License Plate</span>
+                            <input placeholder="" type="text">
+                        </label>
+                        <label style="" class="item item-input">
+                            <span class="input-label">Extra</span>
+                            <input placeholder="Model, Stickers, etc" type="text">
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <div style="" class="list card">
+                <div class="item item-divider">Type</div>
+                <div class="item item-body">
+                    <form style="" class="list">
+                        <ion-radio style="">None</ion-radio>
+                        <ion-radio style="">Car</ion-radio>
+                        <ion-radio style="">Motorcycle</ion-radio>
+                    </form>
+                </div>
+            </div>
+            <div style="" class="list card">
+                <div class="item item-body">
+                    <form style="" class="list">
+                        <ion-item style="" class="range range-positive">Slots
+                            <input max="5" min="0" value="3" type="range">
+                        </ion-item>
+                    </form>
+                </div>
+                <div class="item item-divider">Min 0 - Max 5</div>
+            </div>
+            <ion-toggle style="" toggle-class="toggle-positive">Notifications</ion-toggle>
+        </form>
+    </ion-content>
+</ion-view>
