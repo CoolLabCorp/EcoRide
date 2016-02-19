@@ -33,11 +33,28 @@ passport.use(new FacebookStrategy(
   function(accessToken, refreshToken, profile, callback) 
   {
     // Loggin Working
-    /*User.findOrCreate(, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });*/
-    console.log(callback);
+    User.findOne({
+            'user_id': profile.id 
+        }, function(err, user) {
+            if (err) {
+                return callback(err);
+            }
+            //No user was found... so create a new user with values from Facebook (all the profile. stuff)
+            if (!user) {
+                user = new User({
+                    'user_id': profile.id,
+                    'username': profile.displayName
+                });
+                user.save(function(err) {
+                    if (err) console.log(err);
+                    return callback(err, user);
+                });
+            } else {
+                //found user. Return
+                return callback(err, user);
+            }
+        });
+    console.log(" CALLBACK FACEBOOK =====>"+JSON.stringify(profile));
   }));
 
 //== Routes & Logic. =============

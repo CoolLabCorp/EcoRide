@@ -16,5 +16,5 @@ userSchema =  mongoose.Schema({
     created_at: Date
 });
 
- module.exports = userSchema;
+ module.exports =  userSchema;
 // =======END=======

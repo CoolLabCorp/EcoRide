@@ -17,8 +17,8 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = true
 
   # Rede
-  # config.vm.network "forwarded_port", guest: 3000, host: 8080
-  config.vm.network "private_network", ip: "192.168.24.69"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # config.vm.network "private_network", ip: "192.168.24.69"
 
   # Sincronização Extra
   # config.vm.synced_folder "../data", "/vagrant_data" ( Extra Folder Sync )
