@@ -9,11 +9,16 @@ var userSchema = {}
 userSchema =  mongoose.Schema({
     user_id: { type: String, unique : true, required: true,dropDups: true },
     username: { type: String, required : true},
+
     access_token: String,
     refresh_token: String,
+
     reputation_level: Number,
+    friends: [],
+
     last_signin: Date,
     created_at: Date
+
 });
 
  module.exports =  userSchema;
