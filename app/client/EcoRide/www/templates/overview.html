@@ -1,16 +1,18 @@
-<ion-view style="" title="Overview">
+<ion-view style="" title="Principal">
     <ion-content class="has-header has-footer" overflow-scroll="true" padding="true">
-        <div style="line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
+        <!-- <div style="line-height: 250px; background-color: rgb(255, 255, 255); border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center;">
             <i style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;" class="icon ion-image"></i>
+        </div> -->
+        <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+            <ng-map center="-5.779257,-35.200916" zoom="12"></ng-map>
         </div>
-        <form style="" class="list"></form>
-        <div style="height: 100px;" class="spacer"></div>
+
         <div style="" class="button-bar">
-            <button style="" class="button button-positive button-block ">Nearest To</button>
-            <button style="" class="button button-calm button-block ">Earliest To</button>
+            <button style="" class="button button-positive button-block ">Mais Pr&oacute;ximo</button>
+            <button style="" class="button button-calm button-block ">Mais Rápido</button>
         </div>
         <ion-list style="">
-            <ion-item style="" class="item-divider">Requests</ion-item>
+            <ion-item style="" class="item-divider">Requisi&ccedil;&otilde;es</ion-item>
         </ion-list>
         <div style="" class="list card">
             <div class="item item-divider">Yuri Calistrato</div>
@@ -27,10 +29,10 @@
             </div>
         </div>
         <ion-list style="">
-            <ion-item style="" class="item-divider">Responses</ion-item>
+            <ion-item style="" class="item-divider">Respostas</ion-item>
         </ion-list>
         <ion-list style="">
-            <ion-item style="" class="item-divider">Created</ion-item>
+            <ion-item style="" class="item-divider">Criadas</ion-item>
         </ion-list>
         <div style="" class="list card">
             <div class="item item-divider">My Ride</div>

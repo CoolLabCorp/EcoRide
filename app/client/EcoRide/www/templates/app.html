@@ -1,0 +1,30 @@
+<ion-side-menus style="" enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle=""></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="app"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <div class="title">EcoRide</div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-left has-header" ion-content="">
+            <ion-list style="">
+                <ion-item style="" menu-close="" ui-sref="app.overview">Principal</ion-item>
+                <ion-item style="" class="item-divider">Carona</ion-item>
+                <ion-item style="" menu-close="" ui-sref="app.needARide">Preciso</ion-item>
+                <ion-item style="" menu-close="" ui-sref="app.offerARide">Ofere&ccedil;o</ion-item>
+                <ion-item style="" menu-close="" ui-sref="app.routine">Rotina</ion-item>
+                <ion-item style="" class="item-divider">Chat</ion-item>
+                <ion-item style="" menu-close="" ui-sref="app.inbox">Inbox</ion-item>
+                <ion-item style="" class="item-divider">Op&ccedil;&otilde;es</ion-item>
+                <ion-item style="" menu-close="" ui-sref="app.settings">Configura&ccedil;&otilde;es</ion-item>
+                <ion-item style="" menu-close="" ui-sref="connectIt">Desconectar</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

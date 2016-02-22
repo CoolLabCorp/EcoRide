@@ -18,36 +18,35 @@ angular.module('app.routes', [])
       templateUrl: 'templates/connectIt.html'
     })
         
-      
-    
-      
-        
-    .state('chat', {
-      url: '/chat/id/',
-      templateUrl: 'templates/chat.html'
-    })
         
       
     
       
         
-    .state('menu.inbox', {
-      url: '/chat',
+    .state('app.inbox', {
+      url: '/inbox',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/inbox.html'
         }
       }
     })
+
+
+    .state('app.chat', {
+      url: '/chat',
+      views:{
+        'app':{
+          templateUrl: 'templates/chat.html'
+        }
+      }
+    })
+
         
-      
-    
-      
-        
-    .state('menu.needARide', {
-      url: '/ride',
+    .state('app.needARide', {
+      url: '/ride/need/',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/needARide.html'
         }
       }
@@ -56,19 +55,19 @@ angular.module('app.routes', [])
       
     
       
-    .state('menu', {
-      url: '/side-menu21',
+    .state('app', {
+      url: '/app',
       abstract:true,
-      templateUrl: 'templates/menu.html'
+      templateUrl: 'templates/app.html'
     })
       
     
       
         
-    .state('menu.settings', {
+    .state('app.settings', {
       url: '/settings',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/settings.html'
         }
       }
@@ -78,10 +77,10 @@ angular.module('app.routes', [])
     
       
         
-    .state('menu.offerARide', {
-      url: '/ride',
+    .state('app.offerARide', {
+      url: '/ride/offer/',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/offerARide.html'
         }
       }
@@ -91,10 +90,10 @@ angular.module('app.routes', [])
     
       
         
-    .state('menu.overview', {
-      url: '/',
+    .state('app.overview', {
+      url: '/home',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/overview.html'
         }
       }
@@ -104,10 +103,10 @@ angular.module('app.routes', [])
     
       
         
-    .state('menu.routine', {
-      url: '/page21',
+    .state('app.routine', {
+      url: '/ride/routine',
       views: {
-        'side-menu21': {
+        'app': {
           templateUrl: 'templates/routine.html'
         }
       }
