@@ -1,20 +1,17 @@
-// Routine.js
+// Inbox.js
 // =================
 var imports = require('../config/imports');
 var mongoose = imports.getMongoose();
 // =================
-var msgSchema = {}
+var inboxSchema = {}
 // Schema -> Ride :
 
 msgSchema =  mongoose.Schema({
-    msg_id: { type: String, unique : true, required: true,dropDups: true },
-
+    inbox_id: { type: String, unique : true, required: true,dropDups: true },
     owner_id: Number,
-    receiver_id: Number,
-    text: String,
-
-    type: Number, // 0 = Chat, 1 = Response for Request
-    ride_id: Number,
+    
+    messages: [], // Chat Msgs
+    ride_messages: [], // System Msgs
 
     created_at: Date
 });

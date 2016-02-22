@@ -43,7 +43,9 @@ passport.use(new FacebookStrategy(
             if (!user) {
                 user = new User({
                     'user_id': profile.id,
-                    'username': profile.displayName
+                    'username': profile.displayName,
+                    'friends': profile.friends,
+                    'picture': profile.picture
                 });
                 user.save(function(err) {
                     if (err) console.log(err);
@@ -54,21 +56,20 @@ passport.use(new FacebookStrategy(
                 return callback(err, user);
             }
         });
-    console.log(" CALLBACK FACEBOOK =====>"+JSON.stringify(profile));
   }));
 
 //== Routes & Logic. =============
 
 controller.get('/facebook', passport.authenticate('facebook', { scope: ['user_friends'] }) );
 
-controller.get('/facebook/callback',passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }),
+controller.get('/facebook/callback',passport.authenticate('facebook'),
   function(req, res) {
-    console.log(res);
-  res.redirect('/');
-});
+    res.status(200).json(req.user);
+  });
 
 controller.get('/logout', function(req, res,next) {
-  
+  req.logout();
+  res.status(200);
 });  
 
 

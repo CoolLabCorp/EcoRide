@@ -9,15 +9,24 @@ var userSchema = {}
 userSchema =  mongoose.Schema({
     user_id: { type: String, unique : true, required: true,dropDups: true },
     username: { type: String, required : true},
+    picture: String,
 
     access_token: String,
     refresh_token: String,
 
     reputation_level: Number,
-    friends: [],
+    friends: [], // Friends IDs
 
     last_signin: Date,
-    created_at: Date
+    created_at: Date,
+
+    // Settings
+
+    slots: Number,
+    type: Number,
+    color: String,
+    plate: String,
+    extra: String
 
 });
 

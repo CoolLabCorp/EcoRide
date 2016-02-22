@@ -20,3 +20,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
   });
 })
+
+.config(function (localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('er')
+    .setNotify(true, true);
+})

@@ -1,22 +1,22 @@
-<ion-view style="" title="Configurações">
+<ion-view style="" title="Configurar" ng-controller="settings">
     <ion-content class="has-header has-footer" overflow-scroll="true" padding="true">
         <form style="" class="list">
             <h4 style="">Configura&ccedil;&otilde;es</h4>
             <div style="" class="list card">
-                <div class="item item-divider">Identificar-se</div>
+                <div class="item item-divider">Identificar o Transporte</div>
                 <div class="item item-body">
                     <form style="" class="list">
                         <label style="" class="item item-input">
                             <span class="input-label">Cor</span>
-                            <input placeholder="" type="text">
+                            <input placeholder="" type="text" ng-model="user.color" ng-change="update('color')">
                         </label>
                         <label style="" class="item item-input">
                             <span class="input-label">Placa</span>
-                            <input placeholder="" type="text">
+                            <input placeholder="" type="text" ng-model="user.plate" ng-change="update('plate')">
                         </label>
                         <label style="" class="item item-input">
                             <span class="input-label">Extra</span>
-                            <input placeholder="Model, Stickers, etc" type="text">
+                            <input placeholder="Model, Stickers, etc" type="text" ng-model="user.extra" ng-change="update('extra')">
                         </label>
                     </form>
                 </div>
@@ -25,23 +25,24 @@
                 <div class="item item-divider">Tipo</div>
                 <div class="item item-body">
                     <form style="" class="list">
-                        <ion-radio style="">Pedestre</ion-radio>
-                        <ion-radio style="">Carro</ion-radio>
-                        <ion-radio style="">Motocicleta</ion-radio>
+                        <ion-radio style="" ng-model="user.type" value="0" ng-change="update('type')">Pedestre</ion-radio>
+                        <ion-radio style="" ng-model="user.type" value="1" ng-change="update('type')">Carro</ion-radio>
+                        <ion-radio style="" ng-model="user.type" value="2" ng-change="update('type')">Motocicleta</ion-radio>
                     </form>
                 </div>
             </div>
             <div style="" class="list card">
+                <div class="item item-divider">Vagas: <i ng-bind="user.slots"></i></div>
                 <div class="item item-body">
                     <form style="" class="list">
                         <ion-item style="" class="range range-positive">Vagas
-                            <input max="5" min="0" value="3" type="range" alt="">
+                            <input ng-model="user.slots" ng-change="update('slots')"  max="5" min="0"  type="range" alt="">
                         </ion-item>
                     </form>
                 </div>
                 <div class="item item-divider">Min 0 - Max 5</div>
             </div>
-            <ion-toggle style="" toggle-class="toggle-positive">Notifica&ccedil;&otilde;es</ion-toggle>
+            <ion-toggle ng-model="user.notify" ng-change="update('notify')" style="" toggle-class="toggle-positive">Notifica&ccedil;&otilde;es</ion-toggle>
         </form>
     </ion-content>
 </ion-view>
